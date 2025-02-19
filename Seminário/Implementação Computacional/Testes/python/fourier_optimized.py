@@ -18,8 +18,8 @@ end = time.time()
 print(f"Execution time: {(end - start):.6f} seconds")
 
 # Plot
-plt.plot(x_values, y_values, label="Optimized Fourier Approximation")
-plt.title("Optimized Fourier Series Approximation of a Square Wave")
+plt.plot(x_values, y_values, label=f"Série de Fourier para  x = {terms}")
+plt.title("Aproximação de uma onda quadrada pela Série de Fourier")
 plt.xlabel("x")
 plt.ylabel("f(x)")
 plt.legend()
