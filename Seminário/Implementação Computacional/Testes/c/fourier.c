@@ -15,7 +15,10 @@ double fourier_square_wave(double x, int terms){
 }
 
 int main(){
-    int terms = 10; // Number of harmonics
+    int terms;
+    printf("\nType the amount of terms: ");
+    scanf("%d", &terms);
+
     double start = -2 * M_PI;
     double end = 2 * M_PI;
     int num_points = 1000; // Number of points to evaluate

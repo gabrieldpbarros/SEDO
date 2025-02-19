@@ -9,8 +9,8 @@ def maclaurin_exp_optimized(x, terms):
     return np.sum((x**n) / factorial(n))
 
 # Example usage
-x = int(input("Digite o valor de x: "))
-terms = int(input("Digite a quantidade de termos da serie: "))
+x = int(input("Type x value: "))
+terms = int(input("Type the amount of terms: "))
 
 start = time.time()
 mac = maclaurin_exp_optimized(x, terms)

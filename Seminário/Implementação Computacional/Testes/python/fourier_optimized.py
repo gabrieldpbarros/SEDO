@@ -3,15 +3,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 
-def fourier_square_wave_optimized(x, terms=10):
+def fourier_square_wave_optimized(x, terms):
     """Optimized Fourier series using numpy."""
     n = np.arange(1, terms + 1, 2)  # Odd harmonics
     return np.sum((4 / (np.pi * n)) * np.sin(n * x[:, np.newaxis]), axis=1)
 
 # Example usage
+terms = int(input("Type the amount of terms: "))
 start = time.time()
 x_values = np.linspace(-2 * np.pi, 2 * np.pi, 1000)
-y_values = fourier_square_wave_optimized(x_values, terms=10)
+y_values = fourier_square_wave_optimized(x_values, terms)
 end = time.time()
 
 print(f"Execution time: {(end - start):.6f} seconds")

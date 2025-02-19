@@ -21,8 +21,14 @@ double maclaurin_exp(double x, int terms){
 }
 
 int main(){
-    double x = 200.0;
-    int terms = 2000;
+    double x;
+    int terms;
+
+    printf("Type x value: ");
+    scanf("%lf", &x);
+
+    printf("\nType the amount of terms: ");
+    scanf("%d", &terms);
 
     clock_t start = clock();
     double approx = maclaurin_exp(x, terms);
@@ -34,7 +40,7 @@ int main(){
 
     printf("Maclaurin approximation of e^%.0f: %.6f\n", x, approx);
     printf("Exact value of e^%.0f: %.6f\n", x, exact);
-    printf("Execution time: %.15Lf seconds\n", time);
+    printf("Execution time: %.15f seconds\n", time);
 
     return 0;
 }

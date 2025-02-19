@@ -3,7 +3,7 @@ import math
 import time
 from decimal import Decimal, ROUND_DOWN
 
-def maclaurin_exp(x, terms=10):
+def maclaurin_exp(x, terms):
     """Approximate e^x using Maclaurin series."""
     result = 0.0
     for n in range(terms):
@@ -11,10 +11,11 @@ def maclaurin_exp(x, terms=10):
     return result
 
 # Example usage
-x = int(input("Digite o valor de x: "))
+x = int(input("Type x value: "))
+terms = int(input("Type the amount of terms: "))
 
 start = time.time()
-mac = maclaurin_exp(x)
+mac = maclaurin_exp(x, terms)
 end = time.time()
 
 exp = math.exp(x)
