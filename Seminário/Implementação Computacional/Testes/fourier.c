@@ -21,7 +21,6 @@ int main(){
     int num_points = 1000; // Number of points to evaluate
     FILE *arquivo = fopen("fourier_data.txt", "w");
 
-    fprintf(arquivo, "x\tf(x)\n");
     for(int i = 0; i < num_points; i++){
         double x = start + (end - start) * i / (num_points - 1);
         double y = fourier_square_wave(x, terms);
