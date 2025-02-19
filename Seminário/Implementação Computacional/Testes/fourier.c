@@ -19,13 +19,16 @@ int main(){
     double start = -2 * M_PI;
     double end = 2 * M_PI;
     int num_points = 1000; // Number of points to evaluate
+    FILE *arquivo = fopen("fourier_data.txt", "w");
 
-    printf("x\tf(x)\n");
+    fprintf(arquivo, "x\tf(x)\n");
     for(int i = 0; i < num_points; i++){
         double x = start + (end - start) * i / (num_points - 1);
         double y = fourier_square_wave(x, terms);
-        printf("%.4f\t%.4f\n", x, y);
+        fprintf(arquivo, "%.4f\t%.4f\n", x, y);
     }
+
+    fclose(arquivo);
 
     return 0;
 }
