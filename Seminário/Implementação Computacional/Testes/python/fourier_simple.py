@@ -1,6 +1,7 @@
 # Exemplo de uma onda quadrada
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
 def fourier_square_wave(x, terms=10):
     """Approximate a square wave using Fourier series."""
@@ -10,8 +11,12 @@ def fourier_square_wave(x, terms=10):
     return result
 
 # Generate data
+start = time.time()
 x_values = np.linspace(-2 * np.pi, 2 * np.pi, 1000)
 y_values = [fourier_square_wave(x, terms=10) for x in x_values]
+end = time.time()
+
+print(f"Execution time: {(end - start):.6f} seconds")
 
 # Plot
 plt.plot(x_values, y_values, label="Fourier Approximation")
