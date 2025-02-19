@@ -23,7 +23,8 @@ def maclaurin_ln_optimized(x, terms):
     return np.sum(((-1)**(n + 1)) * (x[:, np.newaxis]**n) / n, axis=1)
 
 # Parameters
-x_values = np.linspace(-1, 1, 1000)  # Interval for approximation
+x_values_exp = np.linspace(-6, 6, 1000)  # Interval for approximation
+x_values_ln = np.linspace(-1,1, 1000)
 
 # Initialize lists to store results
 y_exp = []
@@ -31,15 +32,15 @@ y_ln = []
 
 # Approximate e^x using optimized Maclaurin series
 start_exp = time.time()
-for i in range(4):
-    y_exp.append(maclaurin_exp_optimized(x_values, terms=i + 1))
+for i in range(1, 11, 2):
+    y_exp.append(maclaurin_exp_optimized(x_values_exp, terms=i + 1))
 end_exp = time.time()
 print(f"e^x execution time: {end_exp - start_exp:.6f} seconds")
 
 # Approximate ln(1+x) using optimized Maclaurin series
 start_ln = time.time()
-for i in range(3):
-    y_ln.append(maclaurin_ln_optimized(x_values, terms=5 * (i + 1)))
+for i in range(5):
+    y_ln.append(maclaurin_ln_optimized(x_values_ln, terms=5 * (i + 1)))
 end_ln = time.time()
 print(f"ln(1+x) execution time: {end_ln - start_ln:.6f} seconds")
 
@@ -48,9 +49,9 @@ plt.figure(figsize=(18, 6))
 
 # Plot e^x approximation
 plt.subplot(1, 2, 1)
-plt.plot(x_values, exp_func(x_values), label="e^x")
-for i in range(4):
-    plt.plot(x_values, y_exp[i], label=f"Série de Maclaurin para qt.termos = {i + 1}")
+plt.plot(x_values_exp, exp_func(x_values_exp), label="e^x")
+for i in range(1, 11, 2):
+    plt.plot(x_values_exp, y_exp[(i-1)//2], label=f"Série de Maclaurin (n = {i + 1})")
 plt.title("Aproximação de e^x pela Série de Maclaurin")
 plt.xlabel("x")
 plt.ylabel("f(x)")
@@ -59,9 +60,9 @@ plt.grid()
 
 # Plot ln(1+x) approximation
 plt.subplot(1, 2, 2)
-plt.plot(x_values, ln_func(x_values), label="ln(1+x)")
-for i in range(3):
-    plt.plot(x_values, y_ln[i], label=f"Série de Maclaurin para qt.termos = {5 * (i + 1)}")
+plt.plot(x_values_ln, ln_func(x_values_ln), label="ln(1+x)")
+for i in range(5):
+    plt.plot(x_values_ln, y_ln[i], label=f"Série de Maclaurin (n = {5 * (i + 1)})")
 plt.title("Aproximação de ln(1+x) pela Série de Maclaurin")
 plt.xlabel("x")
 plt.ylabel("f(x)")
