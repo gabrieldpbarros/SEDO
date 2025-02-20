@@ -7,7 +7,7 @@ from scipy.special import factorial
 def ln_func(x):
     return np.log(1 + x)
 
-# Série de Maclaurin para ln(1+x) (otimizada)
+# Série de Maclaurin para ln(1+x)
 def maclaurin_ln(x, terms):
     """Aproximação de ln(1+x) usando a série de Maclaurin."""
     n = np.arange(1, terms + 1)
