@@ -53,8 +53,8 @@ def plot_comparison_exp():
         # Plotar os resultados
         plt.subplot(1, 3, i + 1)
         plt.plot(x_values_exp, exp_func(x_values_exp), label="Função Original", color="black", linewidth=2, linestyle="--")
-        plt.plot(x_values_exp, y_maclaurin, label=f"Série de Maclaurin (n = {n})")
-        plt.plot(x_values_exp, y_fourier, label=f"Série de Fourier (n = {n})")
+        plt.plot(x_values_exp, y_maclaurin, label=f"Série de Maclaurin")
+        plt.plot(x_values_exp, y_fourier, label=f"Série de Fourier")
         plt.title(f"Aproximação de e^x (n = {n})")
         plt.xlabel("x")
         plt.ylabel("f(x)")
